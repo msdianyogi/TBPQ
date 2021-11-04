@@ -16,6 +16,10 @@ header{
     border: 3px solid white;
     background-color: rgba(0, 0, 0, 0.712);
 }
+.search{
+    width: 30px;
+    text-align: center;
+}
 form{
     width: 50%;
     margin-left: 23%;

@@ -5,6 +5,7 @@
     <title>The Big Picture Quiz</title>
     <link rel="stylesheet" href="./main.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="./main.js"></script>
 </head>
 
 <body>
@@ -23,7 +24,8 @@
                     </ul>
                 </td>
                 <td id="middle">
-                    <input type="text" placeholder="&#xF002; Search" style="font-family: Arial, FontAwesome;">
+                    <input type="text" id="search" placeholder="&#xF002; Search" style="font-family: Arial, FontAwesome;" required>
+                    <input type="submit" class="search" value="&#xF002;" onclick="searchBox()" style="font-family: Arial, FontAwesome;" >
                 </td>
                 <td id="right">
                     <a href="https://www.linkedin.com/in/yogeshlate" target="_blank"><i
@@ -103,23 +105,24 @@
     </div>
     <div id="chat">
         <h1>Chat with us</h1>
-        <form action="#" method="post">
+        <form action="#" method="dialog">
             <fieldset>
                 <legend>
                     Chat Bot
                 </legend>
                 <label for="chat">
                     Enter the Subject
-                </label><input class="input" name="chat" id="chat" type="text" placeholder="Enter The Subject"
-                    autocomplete="off" required>
+                </label>
+                <input class="input" name="chat" id="subject" type="text" placeholder="Enter The Subject"
+                    autocomplete="off" maxlength="150" required">
                 <br>
                 <label for="chatmessage">
                     Enter the Description
                 </label>
-                <textarea name="chatmessage" id="chatmessage" cols="60" rows="8"
-                    placeholder="Enter Description"></textarea>
+                <textarea name="chatmessage" id="chatmessage" cols="60" rows="8" placeholder="Enter Description"
+                    maxlength="500"></textarea>
                 <br>
-                <input style="width: max-content;" type="submit" value="Send Message">
+                <input style="width: max-content;" type="submit" value="Send Message" onclick="chatSubmit()">
             </fieldset>
 
         </form>
