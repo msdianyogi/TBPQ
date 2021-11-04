@@ -1,0 +1,127 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background: url("./background.png");
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: monospace;
+}
+header{
+    top: 0;
+    margin-top: 1px;
+    margin-left: -6px;
+    width: 99.1%;
+    position: fixed;
+    border: 3px solid white;
+    background-color: rgba(0, 0, 0, 0.712);
+}
+form{
+    width: 50%;
+    margin-left: 23%;
+}
+.input{
+    width: 452px;
+}
+label{
+
+    font-family: monospace;
+    font-size: 18px;
+}
+.topdiv{
+    margin-top: 76px;
+    position: inherit;
+    text-align: center;
+    
+}
+.transparentdiv{
+    background-color: transparent;
+}
+div{
+    scroll-margin-top: 81px;
+    border: 3px solid azure;
+    width: 100.4%;
+    margin-left: -6px;
+    margin-top: 2px;
+    height: 400px;
+    color: rgb(14, 9, 3);
+    background-color: rgba(164, 190, 139, 0.822);
+    text-align: center;
+
+}
+p{
+    padding: 40px;
+    justify-content: center;
+    font-size: 30px;
+}
+footer{
+    border: 3px solid white;
+    background-color: rgba(0, 0, 0, 0.712);
+    color: aliceblue;
+    text-align: center;
+    margin-top: 2px;
+    margin-left: -6px;
+    width: 100.3%;
+    margin-bottom: -6px;
+}
+table{
+    width: 100%;
+}
+.trandivi{
+    margin-top: 11%;
+}
+.chatbot{
+    float: right;
+    position: sticky;
+    padding: 425px 30px 0 0px;
+    top: 0;
+    color: aliceblue;
+}
+i{
+    color: aliceblue;
+    margin-right: 5px;
+}
+.a {
+    text-decoration: none;
+    display: inline-block;
+    height: 25px;
+    width: 90px;
+    text-align: center;
+    color: aliceblue;
+    text-transform: uppercase;
+}
+.li:hover{
+    background-color: chocolate;
+    color: black;
+}
+.li {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0);
+    border: 3px solid white;
+    padding-top: 4px;
+    width: 95px;
+}
+input{
+    height: 25px;
+    width: 80%;
+}
+h1{
+    font-family: monospace;
+    text-transform: uppercase;
+    font-size: 35px;
+}
+.textdecoration{
+    text-decoration: none;
+    font-size: 25px;
+    position: relative;
+    top: 40px;
+    margin-top: 10px;
+}
+.i{
+    position: absolute;
+    top: 617%;
+    left: 95%;
+}
+#clients{
+    overflow: hidden;
+}
