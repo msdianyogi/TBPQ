@@ -8,7 +8,7 @@
     <script src="./main.js"></script>
 </head>
 
-<body>
+<body onload="loginForm();loadChatForm()">
     <header>
         <table>
             <tr>
@@ -24,8 +24,10 @@
                     </ul>
                 </td>
                 <td id="middle">
-                    <input type="text" id="search" placeholder="&#xF002; Search" style="font-family: Arial, FontAwesome;" required>
-                    <input type="submit" class="search" value="&#xF002;" onclick="searchBox()" style="font-family: Arial, FontAwesome;" >
+                    <input type="text" class="searchInput" id="search" placeholder="&#xF002; Search"
+                        style="font-family: Arial, FontAwesome;" required>
+                    <input type="submit" class="search" value="&#xF002;" onclick="searchBox()"
+                        style="font-family: Arial, FontAwesome;">
                 </td>
                 <td id="right">
                     <a href="https://www.linkedin.com/in/yogeshlate" target="_blank"><i
@@ -100,32 +102,10 @@
         <!-- <i class="fa fa-spinner fa-pulse fa-5x fa-fw trandivi"></i> -->
     </div>
     <div id="login">
-        <h1>Register/Login</h1>
 
     </div>
     <div id="chat">
-        <h1>Chat with us</h1>
-        <form action="#" method="dialog">
-            <fieldset>
-                <legend>
-                    Chat Bot
-                </legend>
-                <label for="chat">
-                    Enter the Subject
-                </label>
-                <input class="input" name="chat" id="subject" type="text" placeholder="Enter The Subject"
-                    autocomplete="off" maxlength="150" required">
-                <br>
-                <label for="chatmessage">
-                    Enter the Description
-                </label>
-                <textarea name="chatmessage" id="chatmessage" cols="60" rows="8" placeholder="Enter Description"
-                    maxlength="500"></textarea>
-                <br>
-                <input style="width: max-content;" type="submit" value="Send Message" onclick="chatSubmit()">
-            </fieldset>
-
-        </form>
+        
     </div>
     <div class="transparentdiv">
         <!-- <i class="fa fa-spinner fa-pulse fa-5x fa-fw trandivi"></i> -->

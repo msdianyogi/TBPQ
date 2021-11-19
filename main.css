@@ -20,9 +20,22 @@ header{
     width: 30px;
     text-align: center;
 }
-form{
+.search:hover{
+    cursor: pointer;
+}
+.form{
     width: 50%;
     margin-left: 23%;
+    border: 3px solid white;
+    padding: 10px;
+    border-radius: 20px;
+}
+.loginForm{
+    width: 40%;
+    border: 3px solid white;
+    padding: 10px;
+    border-radius: 20px;
+    margin: auto;
 }
 .input{
     width: 452px;
@@ -31,6 +44,7 @@ label{
 
     font-family: monospace;
     font-size: 18px;
+    text-transform: uppercase;
 }
 .topdiv{
     margin-top: 76px;
@@ -71,6 +85,10 @@ footer{
 table{
     width: 100%;
 }
+.loginTable{
+    width: max-content;
+    margin: auto;
+}
 .trandivi{
     margin-top: 11%;
 }
@@ -105,7 +123,7 @@ i{
     padding-top: 4px;
     width: 95px;
 }
-input{
+.searchInput{
     height: 25px;
     width: 80%;
 }
@@ -128,4 +146,8 @@ h1{
 }
 #clients{
     overflow: hidden;
+}
+
+span{
+    color: red;
 }
