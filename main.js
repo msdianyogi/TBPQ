@@ -128,8 +128,8 @@ function loadRegisterForm(){
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="button" value="Clear" onclick="clearRegisterForm()">
-                    <input type="submit" value="Register Here">
+                    <input type="submit" value="Clear" onclick="clearRegisterForm()">
+                    <input type="submit" value="Register Here" onclick="validateRegistrationForm()">
                 </td>
             </tr>
         </table>
@@ -221,6 +221,17 @@ function clearLoginForm(){
 }
 
 function clearRegisterForm(){
+    
+    document.getElementById("sfirstName").innerHTML = "";
+    document.getElementById("slastName").innerHTML = "";
+    document.getElementById("susername").innerHTML = "";
+    document.getElementById("spassword").innerHTML = "";
+    document.getElementById("scpassword").innerHTML = "";
+    document.getElementById("semail").innerHTML = "";
+    document.getElementById("sphone").innerHTML = "";
+    document.getElementById("sgender").innerHTML = "";
+    document.getElementById("sstate").innerHTML = "";
+
     document.getElementById("firstName").value = "";
     document.getElementById("lastName").value = "";
     document.getElementById("username").value = "";
@@ -228,6 +239,7 @@ function clearRegisterForm(){
     document.getElementById("confirmPassword").value = "";
     document.getElementById("email").value = "";
     document.getElementById("phone").value = "";
+
     var genderElements = document.getElementsByName("gender");
     for(var i=0;i<genderElements.length;i++){
         genderElements[i].checked = false;
@@ -236,15 +248,7 @@ function clearRegisterForm(){
     for (var i = 0; i < stateSelected.length; i++) {
         stateSelected[i].selected = stateSelected[i].defaultSelected;
     }
-    document.getElementById("sfirstName").innerHTML = "";
-    document.getElementById("slastName").value = "";
-    document.getElementById("susername").value = "";
-    document.getElementById("spassword").value = "";
-    document.getElementById("scpassword").value = "";
-    document.getElementById("semail").value = "";
-    document.getElementById("sphone").value = "";
-    document.getElementById("sgender").value = "";
-    document.getElementById("sstate").value = "";
+    
 
 }
 
@@ -252,12 +256,188 @@ function validateLoginForm(){
     username = document.getElementById("lusername");
     password = document.getElementById("lpassword");
 
-    if(username.value == "" && password.value == ""){
-        if(username.value == ""){
-            document.getElementById("susername").innerHTML = "* Required";
+    usernameRegex = /^[\w]{6,20}$/;
+    
+    // Username Validation
+    
+    if(username.value == ""){
+        document.getElementById("susername").innerHTML = "* Username Required";
+    }
+    else{
+        if(usernameRegex.test(username.value)){
+            document.getElementById("susername").innerHTML = "";
         }
-        if(password.value ==""){
-            document.getElementById("spassword").innerHTML = "* Required";
+        else{
+            document.getElementById("susername").innerHTML = "* Username [6-20 Characters Long] Only Contains : Alphanumeric Characters";
         }
+    }
+    // Password Validation
+    passwordRegex = / *[a-z]*[A-Z]*[\d]*[\W]/;
+
+    if(password.value == ""){
+        document.getElementById("spassword").innerHTML = "* Password Required ";
+    }
+    else{
+        if(password.value.length > 5 && password.value.length < 20){
+            if(passwordRegex.test(password.value)){
+                document.getElementById("spassword").innerHTML = "";
+            }    
+            else{
+                document.getElementById("spassword").innerHTML = "Must Conatin Atlest 1 [Uppercase, Lowercase, Special Character & Digit]]";
+            }
+        }
+        else{
+            document.getElementById("spassword").innerHTML = "Password Must [6-20 Charcters Long]";
+        }
+    }
+}
+
+function validateRegistrationForm(){
+    firstName = document.getElementById("firstName").value;
+    lastName = document.getElementById("lastName").value;
+    username = document.getElementById("username").value;
+    password = document.getElementById("password").value;
+    confirmPassword = document.getElementById("confirmPassword").value;
+    email = document.getElementById("email").value;
+    phone = document.getElementById("phone").value;
+
+    NameRegex = /^[A-Za-z]{2,19}$/;
+    
+    // First Name Validation
+    
+    if(firstName == ""){
+        document.getElementById("sfirstName").innerHTML = "* Required";
+    }
+    else{
+        if(NameRegex.test(firstName)){
+            document.getElementById("sfirstName").innerHTML = "";
+        }
+        else{
+            document.getElementById("sfirstName").innerHTML = "* First Name Must [2-19 Characters Long] ";
+        }
+    }
+
+    // Last Name Validation
+    
+    if(lastName == ""){
+        document.getElementById("slastName").innerHTML = "* Required";
+    }
+    else{
+        if(NameRegex.test(lastName)){
+            document.getElementById("slastName").innerHTML = "";
+        }
+        else{
+            document.getElementById("slastName").innerHTML = "* Last Name Must [2-19 Characters Long] ";
+        }
+    }
+
+    // Username Validation
+    usernameRegex = /^[\w]{6,20}$/;
+    
+    if(username == ""){
+        document.getElementById("susername").innerHTML = "* Username Required";
+    }
+    else{
+        if(usernameRegex.test(username)){
+            document.getElementById("susername").innerHTML = "";
+        }
+        else{
+            document.getElementById("susername").innerHTML = "* Username [6-20 Characters Long] Only Contains : Alphanumeric Characters";
+        }
+    }
+
+    // Password Validation
+    passwordRegex = / *[a-z]*[A-Z]*[\d]*[\W]/;
+
+    if(password == ""){
+        document.getElementById("spassword").innerHTML = "* Password Required ";
+    }
+    else{
+        if(password.length > 5 && password.length < 20){
+            if(passwordRegex.test(password)){
+                document.getElementById("spassword").innerHTML = "";
+            }    
+            else{
+                document.getElementById("spassword").innerHTML = "Must Conatin Atlest 1 [Uppercase, Lowercase, Special Character & Digit]]";
+            }
+        }
+        else{
+            document.getElementById("spassword").innerHTML = "Password Must [6-20 Charcters Long]";
+        }
+    }
+
+    // Confirm Password Validation
+    if(confirmPassword == ""){
+        document.getElementById("scpassword").innerHTML = "* Confirm Password Required ";
+    }
+    else{
+        if(password == confirmPassword){
+            document.getElementById("scpassword").innerHTML = "";
+        }
+        else{
+            document.getElementById("scpassword").innerHTML = "* Password & Confirm Password Not Matched ";
+        }
+    }
+
+    // Email Validation 
+
+    emailRegex = /^[A-Za-z0-9._]*[@](gmail|yahoo|rediffmail|hotmail){1}[.](com|in|co.in|edu|edu.in){1}$/;
+    if(email == ""){
+        document.getElementById("semail").innerHTML = "* Email Required ";
+    }
+    else{
+        if(emailRegex.test(email)){
+            document.getElementById("semail").innerHTML = "";
+        }    
+        else{
+            document.getElementById("semail").innerHTML = "* Email should be like abc@gmail.com";
+        }
+    }   
+    
+    // Phone Validation 
+
+    phoneRegex = /[+]{0,1}[9]{0,1}[1]{0,1}[-]{0,1}[6-9]{1}[0-9]{9}/;
+    if(phone == ""){
+        document.getElementById("sphone").innerHTML = "* Phone Required ";
+    }
+    else{
+        if(phoneRegex.test(phone)){
+            document.getElementById("sphone").innerHTML = "";
+        }    
+        else{
+            document.getElementById("sphone").innerHTML = "* Phone Number should be like +91-9876543210";
+        }
+    }
+    // Gender Validation
+    
+    genderElements = document.getElementsByName("gender");
+    gcount = 0
+    for(var i=0;i<genderElements.length;i++){
+        if(genderElements[i].checked == true){
+            gcount+=1
+        }
+    }
+    if(gcount == 0){
+        document.getElementById("sgender").innerHTML = "* Gender Required";
+    }
+    else{
+        document.getElementById("sgender").innerHTML = "";
+    }
+    
+    
+    // State Validation
+    
+    selectElements = document.getElementsByName("state");
+    scount = 0
+    for(var i=0;i<selectElements.length;i++){
+        if(selectElements[i].selectedIndex != ""){
+            scount+=1
+        }
+    }
+    if(scount == 0){
+        document.getElementById("sstate").innerHTML = "* State Required";
+    }
+    else{
+        document.getElementById("sstate").innerHTML = "";
     }
 }
